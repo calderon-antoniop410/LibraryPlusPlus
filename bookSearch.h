@@ -1,6 +1,3 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-#include <QMainWindow>
 #include <QSqlDatabase>
 #include <QDebug>
 #include <QListWidget>
