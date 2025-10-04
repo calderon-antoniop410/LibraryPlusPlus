@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // connect to SQLite database
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:/Users/marie/OneDrive/Documentos/t/books.db");   // adjust path if needed
+    db.setDatabaseName("C:/Users/marie/OneDrive/Documentos/LPP/books.db");   // adjust path if needed
 
     if (!db.open()) {
         QMessageBox::critical(this, "DB Error", db.lastError().text());
