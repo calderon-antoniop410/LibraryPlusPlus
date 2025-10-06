@@ -1,4 +1,4 @@
-QT       += core gui
+QT += core gui
 QT += sql
 QT += core gui sql
 
@@ -21,10 +21,6 @@ HEADERS += \
 FORMS += \
     bookSearch.ui
 
-TRANSLATIONS += \
-    LPP_en_US.ts
-CONFIG += lrelease
-CONFIG += embed_translations
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

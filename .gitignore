@@ -1,0 +1,34 @@
+# Qt Creator user-specific files
+*.pro.user
+*.pro.user.*
+
+# Build directories (Qt Creator usually creates build-*)
+build/
+build-*/
+
+# Qt intermediate files
+.qmake.stash
+Makefile*
+*.o
+*.obj
+
+# clangd cache
+.qtc_clangd/
+
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Autosave and logs
+*.autosave
+*.log
+
+# Editor/IDE junk
+*.swp
+*.bak
+*.tmp
+.DS_Store
+.idea/
+.vscode/
