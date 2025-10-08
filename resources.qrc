@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/images">
         <file>mcbook.webp</file>
+        <file>randbook.jpg</file>
     </qresource>
 </RCC>

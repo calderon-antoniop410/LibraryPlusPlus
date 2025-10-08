@@ -91,7 +91,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>passwordline</string>
+     <string/>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
@@ -107,7 +107,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>usernameline</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="signupButton">

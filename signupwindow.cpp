@@ -17,6 +17,7 @@ void signupWindow::on_signupButton_clicked()
 {
     QString username = ui->lineEditUsername->text();
     QString password = ui->lineEditPassword->text();
+    QString confirmPassword = ui->lineEditPassword_2->text();
 
     // Basic input validation
     if (username.isEmpty() || password.isEmpty()) {
@@ -24,8 +25,31 @@ void signupWindow::on_signupButton_clicked()
         return;
     }
 
+    // Check if passwords match
+    if (password != confirmPassword) {
+        QMessageBox::warning(this, "Input Error", "Passwords do not match.");
+        return;
+    }
+
     // Get the existing database connection
     QSqlDatabase accountsDb = QSqlDatabase::database("AccountsDB");
+
+    // Check if username already exists
+    QSqlQuery checkQuery(accountsDb);
+    checkQuery.prepare("SELECT COUNT(*) FROM Users WHERE username = :username");
+    checkQuery.bindValue(":username", username);
+    if (!checkQuery.exec()) {
+        QMessageBox::critical(this, "Database Error", checkQuery.lastError().text());
+        return;
+    }
+
+    checkQuery.next();
+    int count = checkQuery.value(0).toInt();
+    if (count > 0) {
+        QMessageBox::warning(this, "Signup Failed", "Username already exists. Please choose another one.");
+        return;
+    }
+
 
     // Prepare the insert query
     QSqlQuery query(accountsDb);

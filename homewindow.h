@@ -15,6 +15,11 @@ public:
     explicit homeWindow(QWidget *parent = nullptr);
     ~homeWindow();
 
+private slots:
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::homeWindow *ui;
 };

@@ -43,14 +43,14 @@
    <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>600</x>
       <y>10</y>
-      <width>91</width>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Exit</string>
+     <string>Back to Main Page</string>
     </property>
    </widget>
    <widget class="QPushButton" name="deleteButton">

@@ -1,5 +1,5 @@
 #include "loginwindow.h"
-#include "bookManager.h"
+#include "homewindow.h"
 #include "signupwindow.h"
 #include "ui_loginwindow.h"
 #define PATH_accountsdb "/home/ap/databases/qtdatabases/Accounts.sqlite" // CHANGE TO YOUR PATH
@@ -37,9 +37,9 @@ void loginWindow::on_loginButton_clicked()
         {
             if(query.next()) // username & password found
             {
-                // Create the bookManager window
-                bookManager *managerWindow = new bookManager();
-                managerWindow->show();
+                // Create the homewindow window
+                homeWindow *homewindow = new homeWindow();
+                homewindow->show();
 
                 // Close or hide the login window
                 this->close(); // or this->hide() if you want it reusable

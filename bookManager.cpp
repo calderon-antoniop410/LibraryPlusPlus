@@ -1,4 +1,5 @@
 #include "bookManager.h"
+#include "homewindow.h"
 #include "ui_bookManager.h"
 #include <QMessageBox>
 #include <QSqlDatabase>
@@ -173,7 +174,12 @@ void bookManager::on_deleteButton_clicked()
 
 void bookManager::on_exitButton_clicked()
 {
-    close();
+    // Create the homewindow window
+    homeWindow *homewindow = new homeWindow();
+    homewindow->show();
+
+    // Close or hide the login window
+    this->close(); // or this->hide() if you want it reusable
 }
 
 void bookManager::loadSavedBooks()
