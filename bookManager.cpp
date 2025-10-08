@@ -1,5 +1,5 @@
-#include "bookSearch.h"
-#include "ui_bookSearch.h"
+#include "bookManager.h"
+#include "ui_bookManager.h"
 #include <QMessageBox>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -8,16 +8,17 @@
 #include <QDebug>
 #include <QListWidgetItem>
 #include <QListWidget>
+#define BOOKSDB "/home/ap/databases/qtdatabases/books.db" // CHANGE THIS TO YOUR PATH FOR DB
 
-MainWindow::MainWindow(QWidget *parent)
+bookManager::bookManager(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::bookManager)
 {
     ui->setupUi(this);
 
     // connect to SQLite database
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:/Users/AP/Desktop/qt-projects/cpsc362project/LibraryPlusPlus/books.db");
+    db = QSqlDatabase::addDatabase("QSQLITE", "BooksDB");
+    db.setDatabaseName(BOOKSDB);
 
     if (!db.open()) {
         QMessageBox::critical(this, "DB Error", db.lastError().text());
@@ -33,13 +34,15 @@ MainWindow::MainWindow(QWidget *parent)
     loadSavedBooks();
 }
 
-MainWindow::~MainWindow()
+bookManager::~bookManager()
 {
-    db.close();
+    if (db.isOpen())
+        db.close();              // Close the database connection
+    QSqlDatabase::removeDatabase("BooksDB"); // optional cleanup
     delete ui;
 }
 
-void MainWindow::on_searchButton_clicked()
+void bookManager::on_searchButton_clicked()
 {
     QString term = ui->lineEdit->text().trimmed();
     ui->tableView1->clear();
@@ -65,7 +68,7 @@ void MainWindow::on_searchButton_clicked()
         ui->tableView1->addItem("(no results)");
 }
 
-void MainWindow::on_addButton_clicked()
+void bookManager::on_addButton_clicked()
 {
     QListWidgetItem *item = ui->tableView1->currentItem();
     if (!item || item->text() == "(no results)") {
@@ -93,7 +96,7 @@ void MainWindow::on_addButton_clicked()
     loadSavedBooks();
 }
 
-void MainWindow::on_editButton_clicked()
+void bookManager::on_editButton_clicked()
 {
     QListWidgetItem *item = ui->tableView2->currentItem();
     if (!item) {
@@ -128,7 +131,7 @@ void MainWindow::on_editButton_clicked()
     loadSavedBooks();
 }
 
-void MainWindow::on_deleteButton_clicked()
+void bookManager::on_deleteButton_clicked()
 {
     QListWidgetItem *item = ui->tableView2->currentItem();
     if (!item) {
@@ -168,12 +171,12 @@ void MainWindow::on_deleteButton_clicked()
     loadSavedBooks();
 }
 
-void MainWindow::on_exitButton_clicked()
+void bookManager::on_exitButton_clicked()
 {
     close();
 }
 
-void MainWindow::loadSavedBooks()
+void bookManager::loadSavedBooks()
 {
     ui->tableView2->clear();
 
@@ -191,7 +194,7 @@ void MainWindow::loadSavedBooks()
     }
 }
 
-QString MainWindow::parseISBN(const QString &text)
+QString bookManager::parseISBN(const QString &text)
 {
     return text.section("(ISBN:",1,1).remove(")").trimmed();
 }

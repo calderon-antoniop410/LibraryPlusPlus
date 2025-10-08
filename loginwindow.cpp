@@ -1,0 +1,71 @@
+#include "loginwindow.h"
+#include "bookManager.h"
+#include "signupwindow.h"
+#include "ui_loginwindow.h"
+#define PATH_accountsdb "/home/ap/databases/qtdatabases/Accounts.sqlite" // CHANGE TO YOUR PATH
+
+loginWindow::loginWindow(QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::loginWindow)
+{
+    ui->setupUi(this);
+    this->setFixedSize(575, 460);
+    accountsDB = QSqlDatabase::addDatabase("QSQLITE", "AccountsDB");
+    accountsDB.setDatabaseName(PATH_accountsdb);
+}
+
+loginWindow::~loginWindow()
+{
+    if (accountsDB.isOpen())
+        accountsDB.close();              // Close the database connection
+    QSqlDatabase::removeDatabase("AccountsDB"); // optional cleanup
+    delete ui;
+}
+
+void loginWindow::on_loginButton_clicked()
+{
+    QString username = ui->lineEditUsername->text();
+    QString password = ui->lineEditPassword->text();
+
+    if(accountsDB.open())
+    {
+        QSqlQuery query(accountsDB);
+        query.prepare("SELECT * FROM Users WHERE username = :username AND password = :password");
+        query.bindValue(":username", username);
+        query.bindValue(":password", password);
+        if(query.exec())
+        {
+            if(query.next()) // username & password found
+            {
+                // Create the bookManager window
+                bookManager *managerWindow = new bookManager();
+                managerWindow->show();
+
+                // Close or hide the login window
+                this->close(); // or this->hide() if you want it reusable
+
+                // Optionally show a message before opening
+                // QMessageBox::about(this, "Login", "Login Success");
+            }
+            else
+            {
+                QMessageBox::warning(this,"Invalid Credentials","Invalid Username or Password");
+            }
+        }
+    }
+}
+
+
+
+
+void loginWindow::on_signupButton_clicked()
+{
+    // Create the bookManager window
+    signupWindow *signupwindow = new signupWindow();
+    signupwindow->show();
+
+    // Close or hide the login window
+    this->close(); // or this->hide() if you want it reusable
+
+}
+

@@ -1,5 +1,4 @@
-#include "bookSearch.h"
-
+#include "loginwindow.h"
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
@@ -9,8 +8,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    QListWidget listWidget;
+    loginWindow w;
     w.resize(900, 600);
     w.show();
     return a.exec();

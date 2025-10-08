@@ -1,5 +1,6 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef BOOKMANAGER_H
+#define BOOKMANAGER_H
+
 
 #include <QMainWindow>
 #include <QSqlDatabase>
@@ -9,16 +10,16 @@
 #include <QPushButton>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui { class bookManager; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class bookManager : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit bookManager(QWidget *parent = nullptr);
+    ~bookManager();
 
 private slots:
     void on_searchButton_clicked();
@@ -28,11 +29,10 @@ private slots:
     void on_exitButton_clicked();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::bookManager *ui;
     QSqlDatabase db;
-
     void loadSavedBooks();
     QString parseISBN(const QString &text);
 };
 
-#endif // MAINWINDOW_H
+#endif // bookManager_H
