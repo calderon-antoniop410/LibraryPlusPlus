@@ -18,7 +18,7 @@ bookManager::bookManager(QWidget *parent)
     ui->setupUi(this);
 
     // connect to SQLite database
-    db = QSqlDatabase::addDatabase("QSQLITE", "BooksDB");
+    db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(BOOKSDB);
 
     if (!db.open()) {
@@ -39,7 +39,6 @@ bookManager::~bookManager()
 {
     if (db.isOpen())
         db.close();              // Close the database connection
-    QSqlDatabase::removeDatabase("BooksDB"); // optional cleanup
     delete ui;
 }
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>518</width>
-    <height>354</height>
+    <width>475</width>
+    <height>315</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>40</y>
-     <width>381</width>
-     <height>261</height>
+     <x>30</x>
+     <y>20</y>
+     <width>411</width>
+     <height>271</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -61,19 +61,6 @@
     </property>
     <property name="text">
      <string>Signup</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>10</y>
-      <width>161</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Back to Login Page</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -186,6 +173,24 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>10</y>
+      <width>161</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(53, 132, 228);
+color: rgb(0, 0, 0);
+font: 600 oblique 11pt &quot;URW Gothic&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Back to Login</string>
+    </property>
    </widget>
   </widget>
  </widget>

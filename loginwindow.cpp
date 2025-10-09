@@ -10,7 +10,7 @@ loginWindow::loginWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setFixedSize(575, 460);
-    accountsDB = QSqlDatabase::addDatabase("QSQLITE", "AccountsDB");
+    accountsDB = QSqlDatabase::addDatabase("QSQLITE");
     accountsDB.setDatabaseName(PATH_accountsdb);
 }
 
@@ -18,7 +18,6 @@ loginWindow::~loginWindow()
 {
     if (accountsDB.isOpen())
         accountsDB.close();              // Close the database connection
-    QSqlDatabase::removeDatabase("AccountsDB"); // optional cleanup
     delete ui;
 }
 
