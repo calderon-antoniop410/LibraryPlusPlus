@@ -9,7 +9,7 @@
 #include <QDebug>
 #include <QListWidgetItem>
 #include <QListWidget>
-#define BOOKSDB "/home/ap/databases/qtdatabases/books.db" // CHANGE THIS TO YOUR PATH FOR DB
+#define BOOKSDB "/Users/esnec/OneDrive/Documents/LPP/LibraryPlusPlus/databases/books.db" // CHANGE THIS TO YOUR PATH FOR DB
 
 bookManager::bookManager(QWidget *parent)
     : QMainWindow(parent)

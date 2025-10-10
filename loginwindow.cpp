@@ -2,7 +2,7 @@
 #include "homewindow.h"
 #include "signupwindow.h"
 #include "ui_loginwindow.h"
-#define PATH_accountsdb "/home/ap/databases/qtdatabases/Accounts.sqlite" // CHANGE TO YOUR PATH
+#define PATH_accountsdb "/Users/esnec/OneDrive/Documents/LPP/LibraryPlusPlus/databases/Accounts.sqlite" // CHANGE TO YOUR PATH
 
 loginWindow::loginWindow(QWidget *parent)
     : QDialog(parent)
