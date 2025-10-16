@@ -9,7 +9,7 @@
 #include <QDebug>
 #include <QListWidgetItem>
 #include <QListWidget>
-#define BOOKSDB "/home/ap/databases/qtdatabases/books.db" // CHANGE THIS TO YOUR PATH FOR DB
+#include <QDir>
 
 bookManager::bookManager(QWidget *parent)
     : QMainWindow(parent)
@@ -18,6 +18,7 @@ bookManager::bookManager(QWidget *parent)
     ui->setupUi(this);
 
     // connect to SQLite database
+    QString BOOKSDB = QCoreApplication::applicationDirPath() + "/../../databases/books.db";
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(BOOKSDB);
 

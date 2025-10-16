@@ -7,6 +7,8 @@
 #include <QMessageBox>
 #include <QDialog>
 #include <QSqlError>
+#include <QDir>
+
 namespace Ui {
 class loginWindow;
 }

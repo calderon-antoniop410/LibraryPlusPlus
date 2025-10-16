@@ -2,7 +2,6 @@
 #include "homewindow.h"
 #include "signupwindow.h"
 #include "ui_loginwindow.h"
-#define PATH_accountsdb "/home/ap/databases/qtdatabases/Accounts.sqlite" // CHANGE TO YOUR PATH
 
 loginWindow::loginWindow(QWidget *parent)
     : QDialog(parent)
@@ -10,8 +9,13 @@ loginWindow::loginWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setFixedSize(575, 460);
+
+    QString PATH_accountsdb = QCoreApplication::applicationDirPath() + "/../../databases/Accounts.sqlite";
     accountsDB = QSqlDatabase::addDatabase("QSQLITE");
     accountsDB.setDatabaseName(PATH_accountsdb);
+
+    qDebug() << "Database path:" << PATH_accountsdb;  // Check this in Application Output
+
 }
 
 loginWindow::~loginWindow()
