@@ -18,7 +18,7 @@ bookManager::bookManager(QWidget *parent)
     ui->setupUi(this);
 
     // connect to SQLite database
-    QString BOOKSDB = QCoreApplication::applicationDirPath() + "/../../databases/books.db";
+    QString BOOKSDB = QString(PROJECT_SOURCE_DIR) + "/databases/books.db";
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(BOOKSDB);
 

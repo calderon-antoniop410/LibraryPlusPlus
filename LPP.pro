@@ -1,4 +1,5 @@
 QT += core gui sql
+DEFINES += PROJECT_SOURCE_DIR=\\\"$$PWD\\\"
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
