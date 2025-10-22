@@ -11,9 +11,10 @@
 #include <QListWidget>
 #include <QDir>
 
-bookManager::bookManager(QWidget *parent)
+bookManager::bookManager(const QString &username, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::bookManager)
+    , currentUsername(username)
 {
     ui->setupUi(this);
 
@@ -175,7 +176,7 @@ void bookManager::on_deleteButton_clicked()
 void bookManager::on_exitButton_clicked()
 {
     // Create the homewindow window
-    homeWindow *homewindow = new homeWindow();
+    homeWindow *homewindow = new homeWindow(currentUsername);
     homewindow->show();
 
     // Close or hide the login window

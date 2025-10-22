@@ -18,7 +18,7 @@ class bookManager : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit bookManager(QWidget *parent = nullptr);
+    explicit bookManager(const QString &username, QWidget *parent = nullptr);
     ~bookManager();
 
 private slots:
@@ -33,6 +33,7 @@ private:
     QSqlDatabase db;
     void loadSavedBooks();
     QString parseISBN(const QString &text);
+    QString currentUsername;
 };
 
 #endif // bookManager_H

@@ -41,7 +41,7 @@ void loginWindow::on_loginButton_clicked()
             if(query.next()) // username & password found
             {
                 // Create the homewindow window
-                homeWindow *homewindow = new homeWindow();
+                homeWindow *homewindow = new homeWindow(username);
                 homewindow->show();
 
                 // Close or hide the login window

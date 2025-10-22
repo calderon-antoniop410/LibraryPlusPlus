@@ -127,6 +127,19 @@
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="user_label">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>40</y>
+      <width>371</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>

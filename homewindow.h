@@ -12,7 +12,7 @@ class homeWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit homeWindow(QWidget *parent = nullptr);
+    explicit homeWindow(const QString &username, QWidget *parent = nullptr);
     ~homeWindow();
 
 private slots:
@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::homeWindow *ui;
+    QString currentUsername; // store current user
 };
 
 #endif // HOMEWINDOW_H

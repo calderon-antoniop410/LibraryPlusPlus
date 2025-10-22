@@ -31,8 +31,16 @@ void signupWindow::on_signupButton_clicked()
         return;
     }
 
-    // Get the existing database connection
-    QSqlDatabase accountsDb = QSqlDatabase::database("AccountsDB");
+    // Get the database connection
+    QString PATH_accountsdb = QString(PROJECT_SOURCE_DIR) + "/databases/Accounts.sqlite";
+    QSqlDatabase accountsDb = QSqlDatabase::addDatabase("QSQLITE");
+    accountsDb.setDatabaseName(PATH_accountsdb);
+
+    if (!accountsDb.open()) {
+        QMessageBox::critical(this, "Database Error", "Failed to open Accounts database.");
+        return;
+    }
+
 
     // Check if username already exists
     QSqlQuery checkQuery(accountsDb);
