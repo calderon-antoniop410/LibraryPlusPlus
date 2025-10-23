@@ -12,6 +12,7 @@ CONFIG += c++17
 
 SOURCES += \
     bookManager.cpp \
+    booklistwindow.cpp \
     homewindow.cpp \
     loginwindow.cpp \
     main.cpp \
@@ -19,12 +20,14 @@ SOURCES += \
 
 HEADERS += \
     bookManager.h \
+    booklistwindow.h \
     homewindow.h \
     loginwindow.h \
     signupwindow.h
 
 FORMS += \
     bookManager.ui \
+    booklistwindow.ui \
     homewindow.ui \
     loginwindow.ui \
     signupwindow.ui

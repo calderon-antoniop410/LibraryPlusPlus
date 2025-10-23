@@ -27,7 +27,7 @@
      <string>Main Menu Options</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -71,7 +71,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Book Manager</string>
+      <string>Book Editor</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_8">
@@ -84,7 +84,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>???</string>
+      <string>Book List</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_9">
@@ -97,7 +97,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>???</string>
+      <string>Rent a Book</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_10">
@@ -110,7 +110,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>???</string>
+      <string>Return a Book</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_11">

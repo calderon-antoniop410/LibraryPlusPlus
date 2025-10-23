@@ -2,6 +2,7 @@
 #include "ui_homewindow.h"
 #include "loginwindow.h"
 #include "bookManager.h"
+#include "booklistwindow.h"
 homeWindow::homeWindow(const QString &username, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::homeWindow)
@@ -63,5 +64,16 @@ void homeWindow::on_pushButton_clicked()
 
     this->setAttribute(Qt::WA_DeleteOnClose);
     this->close();
+}
+
+
+void homeWindow::on_pushButton_8_clicked()
+{
+    // Create the booklist window
+    booklistWindow *booklWindow = new booklistWindow(currentUsername);
+    booklWindow->show();
+
+    // Close or hide the current window
+    this->close(); // or this->hide() if you want it reusable
 }
 
