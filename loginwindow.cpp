@@ -9,6 +9,7 @@ loginWindow::loginWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setFixedSize(575, 460);
+    centerOnScreen(this);
 
     QString PATH_accountsdb = QString(PROJECT_SOURCE_DIR) + "/databases/Accounts.sqlite";
     accountsDB = QSqlDatabase::addDatabase("QSQLITE");

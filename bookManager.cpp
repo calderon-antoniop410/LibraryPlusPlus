@@ -17,6 +17,7 @@ bookManager::bookManager(const QString &username, QWidget *parent)
     , currentUsername(username)
 {
     ui->setupUi(this);
+    centerOnScreen(this);
 
     // connect to SQLite database
     QString BOOKSDB = QString(PROJECT_SOURCE_DIR) + "/databases/books.db";

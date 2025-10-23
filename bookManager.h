@@ -8,6 +8,8 @@
 #include <QListWidget>
 #include <QWidget>
 #include <QPushButton>
+#include "centerhelper.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class bookManager; }

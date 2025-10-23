@@ -10,6 +10,7 @@ booklistWindow::booklistWindow(const QString &username, QWidget *parent)
 
 {
     ui->setupUi(this);
+    centerOnScreen(this);
 
     // CSS
     ui->lineEdit->setStyleSheet(R"(

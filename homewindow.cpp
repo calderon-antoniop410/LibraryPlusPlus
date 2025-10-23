@@ -9,6 +9,7 @@ homeWindow::homeWindow(const QString &username, QWidget *parent)
     , currentUsername(username)
 {
     ui->setupUi(this);
+    centerOnScreen(this);
 
     ui->user_label->setText("Welcome back " + currentUsername + "!");
     ui->user_label->setStyleSheet(

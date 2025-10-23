@@ -2,6 +2,7 @@
 #define HOMEWINDOW_H
 
 #include <QMainWindow>
+#include "centerhelper.h"
 
 namespace Ui {
 class homeWindow;

@@ -21,6 +21,7 @@ SOURCES += \
 HEADERS += \
     bookManager.h \
     booklistwindow.h \
+    centerhelper.h \
     homewindow.h \
     loginwindow.h \
     signupwindow.h

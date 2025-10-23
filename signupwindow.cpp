@@ -6,6 +6,7 @@ signupWindow::signupWindow(QWidget *parent)
     , ui(new Ui::signupWindow)
 {
     ui->setupUi(this);
+    centerOnScreen(this);
 }
 
 signupWindow::~signupWindow()

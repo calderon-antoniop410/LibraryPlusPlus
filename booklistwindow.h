@@ -7,6 +7,7 @@
 #include <QListWidgetItem>
 #include <QMainWindow>
 #include "homewindow.h"
+#include "centerhelper.h"
 
 
 namespace Ui {

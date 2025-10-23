@@ -8,6 +8,7 @@
 #include <QDialog>
 #include <QSqlError>
 #include <QDir>
+#include "centerhelper.h"
 
 namespace Ui {
 class loginWindow;
