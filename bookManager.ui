@@ -56,14 +56,14 @@
    <widget class="QPushButton" name="deleteButton">
     <property name="geometry">
      <rect>
-      <x>590</x>
+      <x>550</x>
       <y>430</y>
-      <width>91</width>
+      <width>151</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Delete</string>
+     <string>Remove from edit list</string>
     </property>
    </widget>
    <widget class="QPushButton" name="editButton">
