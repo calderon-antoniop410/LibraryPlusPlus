@@ -30,14 +30,14 @@
    <widget class="QPushButton" name="addButton">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>100</x>
       <y>430</y>
-      <width>91</width>
+      <width>131</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Add</string>
+     <string> Add to Edit</string>
     </property>
    </widget>
    <widget class="QPushButton" name="exitButton">
@@ -145,6 +145,24 @@ font-size:15px;
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>150</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+font-size:15px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Select a book to edit from</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -152,7 +170,7 @@ font-size:15px;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

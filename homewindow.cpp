@@ -13,12 +13,12 @@ homeWindow::homeWindow(const QString &username, QWidget *parent)
     ui->user_label->setText("Welcome back " + currentUsername + "!");
     ui->user_label->setStyleSheet(
         "QLabel {"
-        "   color: #2E3A59;"           // deep gray-blue for text
+        "   color: #2E3A59;"
         "   font-family: 'Segoe UI';"
         "   font-size: 20px;"
         "   font-weight: 600;"
-        "   background-color: #E8F0FE;" // soft light-blue background
-        "   border: 2px solid #AAB8E3;" // subtle border
+        "   background-color: #E8F0FE;"
+        "   border: 2px solid #AAB8E3;"
         "   border-radius: 10px;"
         "   padding: 8px 15px;"
         "   margin: 10px;"
