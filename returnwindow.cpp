@@ -17,6 +17,7 @@ returnwindow::returnwindow(const QString &username, QWidget *parent)
     this->setFixedSize(700, 640);
     centerOnScreen(this);
 
+
     // Highlight entire row
     ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);

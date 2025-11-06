@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QListWidgetItem>
 #include <QMainWindow>
+#include <QSqlTableModel>
 #include "homewindow.h"
 #include "centerhelper.h"
 
@@ -24,11 +25,14 @@ public:
 
 private slots:
     void on_backtohomeButton_clicked();
+    void filterBooks(const QString &text);
+
 
 private:
     Ui::booklistWindow *ui;
     QString currentUsername;
     QSqlDatabase libraryDB;
+    QSqlTableModel *model;
 };
 
 #endif // BOOKLISTWINDOW_H

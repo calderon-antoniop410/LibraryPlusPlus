@@ -30,9 +30,9 @@
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>150</y>
-      <width>411</width>
+      <x>70</x>
+      <y>180</y>
+      <width>641</width>
       <height>401</height>
      </rect>
     </property>
@@ -40,10 +40,10 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>90</y>
-      <width>321</width>
-      <height>51</height>
+      <x>180</x>
+      <y>80</y>
+      <width>351</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="title">

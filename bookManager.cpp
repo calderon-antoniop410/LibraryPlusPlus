@@ -114,7 +114,7 @@ void bookManager::on_editButton_clicked()
     QString authorOld = text.section(" — ", 1, 1).section(" (ISBN:", 0, 0).trimmed();
 
     bool ok;
-    QString newBook = QInputDialog::getText(this, "Edit Title", "Book:", QLineEdit::Normal, bookOld, &ok);
+    QString newBook = QInputDialog::getText(this, "Edit Title", "Title:", QLineEdit::Normal, bookOld, &ok);
     if (!ok) return;
     QString newAuthor = QInputDialog::getText(this, "Edit Author", "Author:", QLineEdit::Normal, authorOld, &ok);
     if (!ok) return;
