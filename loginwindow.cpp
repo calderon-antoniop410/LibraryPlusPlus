@@ -11,18 +11,18 @@ loginWindow::loginWindow(QWidget *parent)
     this->setFixedSize(575, 460);
     centerOnScreen(this);
 
-    QString PATH_accountsdb = QString(PROJECT_SOURCE_DIR) + "/databases/Accounts.sqlite";
-    accountsDB = QSqlDatabase::addDatabase("QSQLITE");
-    accountsDB.setDatabaseName(PATH_accountsdb);
+    QString PATH_libdb = QString(PROJECT_SOURCE_DIR) + "/databases/library.db";
+    libDB = QSqlDatabase::addDatabase("QSQLITE");
+    libDB.setDatabaseName(PATH_libdb);
 
-    qDebug() << "Database path:" << PATH_accountsdb;  // Check this in Application Output
+    qDebug() << "Database path:" << PATH_libdb;  // Check this in Application Output
 
 }
 
 loginWindow::~loginWindow()
 {
-    if (accountsDB.isOpen())
-        accountsDB.close();              // Close the database connection
+    if (libDB.isOpen())
+        libDB.close();              // Close the database connection
     delete ui;
 }
 
@@ -31,9 +31,9 @@ void loginWindow::on_loginButton_clicked()
     QString username = ui->lineEditUsername->text();
     QString password = ui->lineEditPassword->text();
 
-    if(accountsDB.open())
+    if(libDB.open())
     {
-        QSqlQuery query(accountsDB);
+        QSqlQuery query(libDB);
         query.prepare("SELECT * FROM Users WHERE username = :username AND password = :password");
         query.bindValue(":username", username);
         query.bindValue(":password", password);

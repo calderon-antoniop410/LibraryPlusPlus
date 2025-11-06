@@ -17,6 +17,8 @@ public:
 
 private slots:
     void on_exitButton_clicked();
+    void borrowBook();       // new slot for borrow button
+    void loadBooks();        // helper to load books into table
 
 private:
     Ui::rentwindow *ui;

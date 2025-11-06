@@ -29,7 +29,7 @@ private slots:
 
 private:
     Ui::loginWindow *ui;
-    QSqlDatabase accountsDB;
+    QSqlDatabase libDB;
 };
 
 #endif // LOGINWINDOW_H

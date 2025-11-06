@@ -17,6 +17,8 @@ public:
 
 private slots:
     void on_exitButton_clicked();
+    void on_returnButton_clicked();
+    void loadBorrowedBooks();
 
 private:
     Ui::returnwindow *ui;
@@ -24,3 +26,4 @@ private:
 };
 
 #endif // RETURNWINDOW_H
+

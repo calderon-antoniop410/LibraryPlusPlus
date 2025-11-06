@@ -30,6 +30,7 @@ private slots:
 private:
     Ui::homeWindow *ui;
     QString currentUsername; // store current user
+    void loadBorrowedBooks();
 };
 
 #endif // HOMEWINDOW_H

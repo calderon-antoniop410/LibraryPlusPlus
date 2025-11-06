@@ -10,6 +10,7 @@ booklistWindow::booklistWindow(const QString &username, QWidget *parent)
 
 {
     ui->setupUi(this);
+    this->setFixedSize(800, 640);
     centerOnScreen(this);
 
     // CSS
@@ -26,18 +27,18 @@ booklistWindow::booklistWindow(const QString &username, QWidget *parent)
 )");
 
 
-    // Open the Books database
-    QString PATH_booksdb = QString(PROJECT_SOURCE_DIR) + "/databases/books.db";
-    QSqlDatabase booksDB = QSqlDatabase::addDatabase("QSQLITE");
-    booksDB.setDatabaseName(PATH_booksdb);
+    // Open the library database
+    QString PATH_librarydb = QString(PROJECT_SOURCE_DIR) + "/databases/library.db";
+    QSqlDatabase libraryDB = QSqlDatabase::addDatabase("QSQLITE");
+    libraryDB.setDatabaseName(PATH_librarydb);
 
-    if (!booksDB.open()) {
-        QMessageBox::critical(this, "Database Error", "Failed to open Books database:\n" + booksDB.lastError().text());
+    if (!libraryDB.open()) {
+        QMessageBox::critical(this, "Database Error", "Failed to open Books database:\n" + libraryDB.lastError().text());
         return;
     }
 
     // Create a model to display the books table
-    QSqlTableModel *model = new QSqlTableModel(this, booksDB);
+    QSqlTableModel *model = new QSqlTableModel(this, libraryDB);
     model->setTable("books");
     model->select(); // Load data
 
@@ -61,8 +62,8 @@ booklistWindow::booklistWindow(const QString &username, QWidget *parent)
 
 booklistWindow::~booklistWindow()
 {
-    if (booksDB.isOpen())
-        booksDB.close();
+    if (libraryDB.isOpen())
+        libraryDB.close();
 
     delete ui;
 }

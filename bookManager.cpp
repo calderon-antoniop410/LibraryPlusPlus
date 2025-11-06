@@ -17,12 +17,13 @@ bookManager::bookManager(const QString &username, QWidget *parent)
     , currentUsername(username)
 {
     ui->setupUi(this);
+    this->setFixedSize(800, 640);
     centerOnScreen(this);
 
     // connect to SQLite database
-    QString BOOKSDB = QString(PROJECT_SOURCE_DIR) + "/databases/books.db";
+    QString libraryDB = QString(PROJECT_SOURCE_DIR) + "/databases/library.db";
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(BOOKSDB);
+    db.setDatabaseName(libraryDB);
 
     if (!db.open()) {
         QMessageBox::critical(this, "DB Error", db.lastError().text());

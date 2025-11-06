@@ -140,6 +140,16 @@
      <string/>
     </property>
    </widget>
+   <widget class="QTableWidget" name="borrowedTable">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>150</y>
+      <width>321</width>
+      <height>301</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>

@@ -28,7 +28,7 @@ private slots:
 private:
     Ui::booklistWindow *ui;
     QString currentUsername;
-    QSqlDatabase booksDB;
+    QSqlDatabase libraryDB;
 };
 
 #endif // BOOKLISTWINDOW_H

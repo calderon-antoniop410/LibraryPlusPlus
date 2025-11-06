@@ -112,7 +112,7 @@ font-size:15px;
 }</string>
     </property>
     <property name="text">
-     <string>Value to Search:</string>
+     <string>Search Book:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
@@ -170,7 +170,7 @@ font-size:15px;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

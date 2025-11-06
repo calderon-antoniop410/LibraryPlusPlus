@@ -33,19 +33,19 @@ void signupWindow::on_signupButton_clicked()
     }
 
     // Get the database connection
-    QString PATH_accountsdb = QString(PROJECT_SOURCE_DIR) + "/databases/Accounts.sqlite";
-    QSqlDatabase accountsDb = QSqlDatabase::addDatabase("QSQLITE");
-    accountsDb.setDatabaseName(PATH_accountsdb);
+    QString PATH_librarydb = QString(PROJECT_SOURCE_DIR) + "/databases/library.db";
+    QSqlDatabase libraryDb = QSqlDatabase::addDatabase("QSQLITE");
+    libraryDb.setDatabaseName(PATH_librarydb);
 
-    if (!accountsDb.open()) {
-        QMessageBox::critical(this, "Database Error", "Failed to open Accounts database.");
+    if (!libraryDb.open()) {
+        QMessageBox::critical(this, "Database Error", "Failed to open library database.");
         return;
     }
 
 
     // Check if username already exists
-    QSqlQuery checkQuery(accountsDb);
-    checkQuery.prepare("SELECT COUNT(*) FROM Users WHERE username = :username");
+    QSqlQuery checkQuery(libraryDb);
+    checkQuery.prepare("SELECT COUNT(*) FROM users WHERE username = :username");
     checkQuery.bindValue(":username", username);
     if (!checkQuery.exec()) {
         QMessageBox::critical(this, "Database Error", checkQuery.lastError().text());
@@ -61,8 +61,8 @@ void signupWindow::on_signupButton_clicked()
 
 
     // Prepare the insert query
-    QSqlQuery query(accountsDb);
-    query.prepare("INSERT INTO Users (username, password) VALUES (:username, :password)");
+    QSqlQuery query(libraryDb);
+    query.prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
     query.bindValue(":username", username);
     query.bindValue(":password", password);
 
