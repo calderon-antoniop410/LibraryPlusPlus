@@ -34,7 +34,6 @@ returnwindow::returnwindow(const QString &username, QWidget *parent)
     // Load borrowed books
     loadBorrowedBooks();
 
-    connect(ui->returnButton, &QPushButton::clicked, this, &returnwindow::on_returnButton_clicked);
 }
 
 returnwindow::~returnwindow()
