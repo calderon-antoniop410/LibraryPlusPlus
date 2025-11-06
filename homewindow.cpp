@@ -3,6 +3,8 @@
 #include "loginwindow.h"
 #include "bookManager.h"
 #include "booklistwindow.h"
+#include "rentwindow.h"
+#include "returnwindow.h"
 homeWindow::homeWindow(const QString &username, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::homeWindow)
@@ -35,7 +37,7 @@ homeWindow::~homeWindow()
     delete ui;
 }
 
-void homeWindow::on_pushButton_6_clicked()
+void homeWindow::on_pushButton_6_clicked() // bookmanager button
 {
     if(currentUsername == "admin")
     {
@@ -57,7 +59,7 @@ void homeWindow::on_pushButton_6_clicked()
 }
 
 
-void homeWindow::on_pushButton_clicked()
+void homeWindow::on_pushButton_clicked() // logout button
 {
     loginWindow *loginwindow = new loginWindow();
     loginwindow->setAttribute(Qt::WA_DeleteOnClose);
@@ -68,11 +70,33 @@ void homeWindow::on_pushButton_clicked()
 }
 
 
-void homeWindow::on_pushButton_8_clicked()
+void homeWindow::on_pushButton_8_clicked() // booklist button
 {
     // Create the booklist window
     booklistWindow *booklWindow = new booklistWindow(currentUsername);
     booklWindow->show();
+
+    // Close or hide the current window
+    this->close(); // or this->hide() if you want it reusable
+}
+
+
+void homeWindow::on_pushButton_9_clicked() //rent book button
+{
+    // Create the rent book window
+    rentwindow *rentwindo= new rentwindow(currentUsername);
+    rentwindo->show();
+
+    // Close or hide the current window
+    this->close(); // or this->hide() if you want it reusable
+}
+
+
+void homeWindow::on_pushButton_10_clicked() // return button
+{
+    // Create the rent book window
+    returnwindow *retwindow= new returnwindow(currentUsername);
+    retwindow->show();
 
     // Close or hide the current window
     this->close(); // or this->hide() if you want it reusable

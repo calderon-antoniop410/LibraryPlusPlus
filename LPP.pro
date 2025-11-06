@@ -16,6 +16,8 @@ SOURCES += \
     homewindow.cpp \
     loginwindow.cpp \
     main.cpp \
+    rentwindow.cpp \
+    returnwindow.cpp \
     signupwindow.cpp
 
 HEADERS += \
@@ -24,6 +26,8 @@ HEADERS += \
     centerhelper.h \
     homewindow.h \
     loginwindow.h \
+    rentwindow.h \
+    returnwindow.h \
     signupwindow.h
 
 FORMS += \
@@ -31,6 +35,8 @@ FORMS += \
     booklistwindow.ui \
     homewindow.ui \
     loginwindow.ui \
+    rentwindow.ui \
+    returnwindow.ui \
     signupwindow.ui
 
 
