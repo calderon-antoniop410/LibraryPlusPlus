@@ -5,6 +5,7 @@
 #include "booklistwindow.h"
 #include "rentwindow.h"
 #include "returnwindow.h"
+#include "bookinformationdialog.h"
 homeWindow::homeWindow(const QString &username, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::homeWindow)
@@ -182,5 +183,11 @@ void homeWindow::on_pushButton_10_clicked() // return button
 
     // Close or hide the current window
     this->close(); // or this->hide() if you want it reusable
+}
+
+void homeWindow::on_pushButton_11_clicked()
+{
+    BookInformationDialog dialog(this);
+    dialog.exec();
 }
 

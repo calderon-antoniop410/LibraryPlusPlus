@@ -11,6 +11,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    bookinformationdialog.cpp \
     bookManager.cpp \
     booklistwindow.cpp \
     homewindow.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
     signupwindow.cpp
 
 HEADERS += \
+    bookinformationdialog.h \
     bookManager.h \
     booklistwindow.h \
     centerhelper.h \
@@ -31,6 +33,7 @@ HEADERS += \
     signupwindow.h
 
 FORMS += \
+    bookinformationdialog.ui \
     bookManager.ui \
     booklistwindow.ui \
     homewindow.ui \
