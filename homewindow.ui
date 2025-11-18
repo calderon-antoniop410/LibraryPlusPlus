@@ -27,7 +27,7 @@
      <string>Main Menu Options</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
+     <set>Qt::AlignCenter</set>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
