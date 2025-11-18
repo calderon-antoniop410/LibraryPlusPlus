@@ -130,33 +130,44 @@ void BookInformationDialog::showBookDetails(const QString &title,
     ui->lblGenreValue->setText(extra.genre);
     ui->lblYearValue->setText(extra.year);
 
+    // Try to load the cover image:
+    // 1) From Qt resource: :/images/<filename>
+    // 2) If that fails, from disk: PROJECT_SOURCE_DIR/<filename>
+    ui->lblCover->setPixmap(QPixmap());
+    ui->lblCover->setText("[Cover]");
+
     if (!extra.coverPath.isEmpty()) {
-        QPixmap cover(extra.coverPath);
+        QPixmap cover;
+
+        // First try resource path
+        QString resourcePath = ":/images/" + extra.coverPath;
+        cover.load(resourcePath);
+
+        // If that fails, try loading from the project directory on disk
+        if (cover.isNull()) {
+            QString filePath = QString(PROJECT_SOURCE_DIR) + "/" + extra.coverPath;
+            cover.load(filePath);
+        }
+
         if (!cover.isNull()) {
             ui->lblCover->setPixmap(
                 cover.scaled(ui->lblCover->size(),
                              Qt::KeepAspectRatio,
                              Qt::SmoothTransformation));
             ui->lblCover->setText("");
-
-        } else {
-            ui->lblCover->setPixmap(QPixmap());
-            ui->lblCover->setText("[Cover]");
         }
-    } else {
-        ui->lblCover->setPixmap(QPixmap());
-        ui->lblCover->setText("[Cover]");
     }
 }
 
 BookInformationDialog::BookExtras BookInformationDialog::extrasFor(const QString &title) const
 {
+    // IMPORTANT: coverPath is now just the FILE NAME, not the full :/images/... path
     if (title == "To Kill a Mockingbird") {
-        return { "Southern Gothic / Bildungsroman", "1960", ":/images/Tkam.png" };
+        return { "Southern Gothic / Bildungsroman", "1960", "Tkam.png" };
     } else if (title == "The Great Gatsby") {
-        return { "Tragedy", "1925", ":/images/Tgatsby.png" };
+        return { "Tragedy", "1925", "Tgatsby.png" };
     } else if (title == "1984") {
-        return { "Dystopian / Political fiction", "1949", ":/images/1984.png" };
+        return { "Dystopian / Political fiction", "1949", "1984.png" };
     }
 
     return { "", "", "" };
