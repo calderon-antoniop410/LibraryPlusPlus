@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Home Page</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox">
@@ -27,7 +27,7 @@
      <string>Main Menu Options</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -71,7 +71,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Book Manager</string>
+      <string>Book Editor</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_8">
@@ -84,7 +84,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>???</string>
+      <string>Book List</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_9">
@@ -97,7 +97,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>???</string>
+      <string>Rent a Book</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_10">
@@ -110,7 +110,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>???</string>
+      <string>Return a Book</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_11">
@@ -123,9 +123,32 @@
       </rect>
      </property>
      <property name="text">
-      <string>???</string>
+      <string>Book Information</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QLabel" name="user_label">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>40</y>
+      <width>371</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="borrowedTable">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>150</y>
+      <width>321</width>
+      <height>301</height>
+     </rect>
+    </property>
    </widget>
   </widget>
  </widget>

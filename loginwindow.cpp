@@ -2,7 +2,6 @@
 #include "homewindow.h"
 #include "signupwindow.h"
 #include "ui_loginwindow.h"
-#define PATH_accountsdb "/Users/esnec/OneDrive/Documents/LPP/LibraryPlusPlus/databases/Accounts.sqlite" // CHANGE TO YOUR PATH
 
 loginWindow::loginWindow(QWidget *parent)
     : QDialog(parent)
@@ -10,14 +9,20 @@ loginWindow::loginWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setFixedSize(575, 460);
-    accountsDB = QSqlDatabase::addDatabase("QSQLITE");
-    accountsDB.setDatabaseName(PATH_accountsdb);
+    centerOnScreen(this);
+
+    QString PATH_libdb = QString(PROJECT_SOURCE_DIR) + "/databases/library.db";
+    libDB = QSqlDatabase::addDatabase("QSQLITE");
+    libDB.setDatabaseName(PATH_libdb);
+
+    qDebug() << "Database path:" << PATH_libdb;  // Check this in Application Output
+
 }
 
 loginWindow::~loginWindow()
 {
-    if (accountsDB.isOpen())
-        accountsDB.close();              // Close the database connection
+    if (libDB.isOpen())
+        libDB.close();              // Close the database connection
     delete ui;
 }
 
@@ -26,9 +31,9 @@ void loginWindow::on_loginButton_clicked()
     QString username = ui->lineEditUsername->text();
     QString password = ui->lineEditPassword->text();
 
-    if(accountsDB.open())
+    if(libDB.open())
     {
-        QSqlQuery query(accountsDB);
+        QSqlQuery query(libDB);
         query.prepare("SELECT * FROM Users WHERE username = :username AND password = :password");
         query.bindValue(":username", username);
         query.bindValue(":password", password);
@@ -37,7 +42,7 @@ void loginWindow::on_loginButton_clicked()
             if(query.next()) // username & password found
             {
                 // Create the homewindow window
-                homeWindow *homewindow = new homeWindow();
+                homeWindow *homewindow = new homeWindow(username);
                 homewindow->show();
 
                 // Close or hide the login window

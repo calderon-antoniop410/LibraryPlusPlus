@@ -1,5 +1,6 @@
 #ifndef SIGNUPWINDOW_H
 #define SIGNUPWINDOW_H
+#include "centerhelper.h"
 
 #include <QDialog>
 

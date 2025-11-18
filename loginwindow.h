@@ -7,6 +7,9 @@
 #include <QMessageBox>
 #include <QDialog>
 #include <QSqlError>
+#include <QDir>
+#include "centerhelper.h"
+
 namespace Ui {
 class loginWindow;
 }
@@ -26,7 +29,7 @@ private slots:
 
 private:
     Ui::loginWindow *ui;
-    QSqlDatabase accountsDB;
+    QSqlDatabase libDB;
 };
 
 #endif // LOGINWINDOW_H

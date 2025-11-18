@@ -2,6 +2,7 @@
 #define HOMEWINDOW_H
 
 #include <QMainWindow>
+#include "centerhelper.h"
 
 namespace Ui {
 class homeWindow;
@@ -12,7 +13,7 @@ class homeWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit homeWindow(QWidget *parent = nullptr);
+    explicit homeWindow(const QString &username, QWidget *parent = nullptr);
     ~homeWindow();
 
 private slots:
@@ -20,8 +21,18 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
 private:
     Ui::homeWindow *ui;
+    QString currentUsername; // store current user
+    void loadBorrowedBooks();
 };
 
 #endif // HOMEWINDOW_H

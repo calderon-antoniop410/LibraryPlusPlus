@@ -9,17 +9,21 @@
 #include <QDebug>
 #include <QListWidgetItem>
 #include <QListWidget>
-#define BOOKSDB "/Users/esnec/OneDrive/Documents/LPP/LibraryPlusPlus/databases/books.db" // CHANGE THIS TO YOUR PATH FOR DB
+#include <QDir>
 
-bookManager::bookManager(QWidget *parent)
+bookManager::bookManager(const QString &username, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::bookManager)
+    , currentUsername(username)
 {
     ui->setupUi(this);
+    this->setFixedSize(800, 640);
+    centerOnScreen(this);
 
     // connect to SQLite database
+    QString libraryDB = QString(PROJECT_SOURCE_DIR) + "/databases/library.db";
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(BOOKSDB);
+    db.setDatabaseName(libraryDB);
 
     if (!db.open()) {
         QMessageBox::critical(this, "DB Error", db.lastError().text());
@@ -110,7 +114,7 @@ void bookManager::on_editButton_clicked()
     QString authorOld = text.section(" — ", 1, 1).section(" (ISBN:", 0, 0).trimmed();
 
     bool ok;
-    QString newBook = QInputDialog::getText(this, "Edit Title", "Book:", QLineEdit::Normal, bookOld, &ok);
+    QString newBook = QInputDialog::getText(this, "Edit Title", "Title:", QLineEdit::Normal, bookOld, &ok);
     if (!ok) return;
     QString newAuthor = QInputDialog::getText(this, "Edit Author", "Author:", QLineEdit::Normal, authorOld, &ok);
     if (!ok) return;
@@ -174,7 +178,7 @@ void bookManager::on_deleteButton_clicked()
 void bookManager::on_exitButton_clicked()
 {
     // Create the homewindow window
-    homeWindow *homewindow = new homeWindow();
+    homeWindow *homewindow = new homeWindow(currentUsername);
     homewindow->show();
 
     // Close or hide the login window

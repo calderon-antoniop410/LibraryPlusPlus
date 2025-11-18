@@ -3,5 +3,6 @@
         <file>mcbook.webp</file>
         <file>randbook.jpg</file>
         <file>happybook.jpg</file>
+        <file>mcbook.jpg</file>
     </qresource>
 </RCC>
