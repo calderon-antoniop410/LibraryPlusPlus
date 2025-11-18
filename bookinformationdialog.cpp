@@ -1,5 +1,5 @@
 #include "bookinformationdialog.h"
-#include "ui_BookInformationDialog.h"
+#include "ui_bookinformationdialog.h"
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
