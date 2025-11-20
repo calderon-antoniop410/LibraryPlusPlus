@@ -36,14 +36,15 @@ booklistWindow::booklistWindow(const QString &username, QWidget *parent)
     }
 
     // Use QSqlQueryModel to show "Yes"/"No" for borrowed status
-    QSqlQueryModel* model = new QSqlQueryModel(this);
-    model->setQuery("SELECT ISBN, book, author, CASE WHEN is_borrowed = 1 THEN 'Yes' ELSE 'No' END AS status FROM books", libraryDB);
+    model = new QSqlTableModel(this, libraryDB);
+    model->setTable("books");
+    model->select();
 
-    // Set headers
     model->setHeaderData(0, Qt::Horizontal, "ISBN");
     model->setHeaderData(1, Qt::Horizontal, "Book Title");
     model->setHeaderData(2, Qt::Horizontal, "Author");
     model->setHeaderData(3, Qt::Horizontal, "Borrowed?");
+
 
     // Assign model to tableView
     ui->tableView->setModel(model);
@@ -79,15 +80,16 @@ void booklistWindow::on_backtohomeButton_clicked()
 // Filter books dynamically based on QLineEdit input
 void booklistWindow::filterBooks(const QString &text)
 {
-    if(text.isEmpty()) {
-        model->setFilter(""); // no filter
-    } else {
-        // Escape single quotes in text to avoid SQL issues
-        QString escaped = text;
-        escaped.replace("'", "''");
+    QString escaped = text;
+    escaped.replace("'", "''");
 
-        // Filter matches ISBN or Book Title
-        model->setFilter(QString("ISBN LIKE '%%1%' OR book LIKE '%%1%'").arg(escaped));
+    if (text.isEmpty()) {
+        model->setFilter("");
+    } else {
+        model->setFilter(QString("ISBN LIKE '%%1%' OR book LIKE '%%1%' OR author LIKE '%%1%'")
+                             .arg(escaped));
     }
-    model->select(); // refresh the model
+
+    model->select();
 }
+
